@@ -55,7 +55,7 @@ module Searchable
         return self if prc.call(self)
 
         children.each do |child|
-            result = child.defs(&prc)
+            result = child.dfs(&prc)
             return result unless result.nil?
         end
 
