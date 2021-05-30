@@ -51,15 +51,15 @@ end
 class Map
 
     def initialize
-        @underlyring_array = []
+        @underlying_array = []
     end
     
     def set(key, value)
-        pair_index = underlyring_array.index { |pair| pair[0] == key}
+        pair_index = underlying_array.index { |pair| pair[0] == key}
         if pair_index
-            underlyring_array[pair_index][1] = value
+            underlying_array[pair_index][1] = value
         else
-            underlyring_array.push([key, value])
+            underlying_array.push([key, value])
         end
         value
     end
@@ -71,12 +71,12 @@ class Map
 
     def delete(key)
         value = get(key)
-        underlyring_array.reject! { |pair| pair[0] == key}
+        underlying_array.reject! { |pair| pair[0] == key}
         value
     end
 
     def show
-        deep_dup(underlyring_array)
+        deep_dup(underlying_array)
     end
     
     private
